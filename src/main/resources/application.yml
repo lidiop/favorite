@@ -1,0 +1,30 @@
+app:
+  url:
+    isbn: https://brasilapi.com.br/api/isbn/v1/
+
+spring:
+  data:
+    mongodb:
+      host: ${MONGO_INITDB_DATABASE:localhost}
+      password: ${MONGO_INITDB_ROOT_PASSWORD:secret}
+      port: 27017
+      username: ${MONGO_INITDB_ROOT_USERNAME:root}
+      database: bookstore
+      auto-index-creation: true
+    redis:
+      host: localhost
+      port: 6379
+
+
+#  main:
+#    allow-circular-references: true
+
+#jwt:
+#  secret: secret-example
+
+server:
+  error:
+    include-message: always
+    include-binding-errors: always
+    include-stacktrace: never
+    include-exception: false
