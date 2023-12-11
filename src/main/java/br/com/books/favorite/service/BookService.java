@@ -2,7 +2,6 @@ package br.com.books.favorite.service;
 
 import br.com.books.favorite.entity.Book;
 import br.com.books.favorite.repository.BookRepository;
-import io.netty.util.internal.ObjectUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -14,7 +13,6 @@ import org.springframework.web.client.RestTemplate;
 
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.Optional;
 
 @Component
 public class BookService {

@@ -15,13 +15,6 @@ spring:
       host: localhost
       port: 6379
 
-
-#  main:
-#    allow-circular-references: true
-
-#jwt:
-#  secret: secret-example
-
 server:
   error:
     include-message: always

@@ -5,6 +5,7 @@ import br.com.books.favorite.repository.FavoriteRepository;
 import br.com.books.favorite.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
@@ -40,9 +41,9 @@ public class UserController {
     @PutMapping
     public ResponseEntity<User> update(@RequestBody User user) {
         Optional<User> byId = userRepository.findById(user.getId());
-        if(byId.isPresent()){
+        if (byId.isPresent()) {
             user.setCreatedDate(byId.get().getCreatedDate());
-        }else{
+        } else {
             user.setCreatedDate(LocalDateTime.now());
         }
         return ResponseEntity.ok(userRepository.save(user));
@@ -50,7 +51,9 @@ public class UserController {
 
     @GetMapping("/{email}")
     public ResponseEntity<User> findByEmail(@PathVariable String email) {
-        return ResponseEntity.ok(userRepository.findByEmail(email));
+        User user = userRepository.findByEmail(email);
+        if (ObjectUtils.isEmpty(user)) return ResponseEntity.notFound().build();
+        return ResponseEntity.ok(user);
     }
 
     @GetMapping

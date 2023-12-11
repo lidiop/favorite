@@ -7,7 +7,6 @@ import br.com.books.favorite.exception.UserNotFoundException;
 import br.com.books.favorite.repository.FavoriteRepository;
 import br.com.books.favorite.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Component;
 
 import java.net.URISyntaxException;
